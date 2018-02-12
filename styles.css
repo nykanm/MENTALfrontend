@@ -3,16 +3,18 @@ body,html {
     margin: 50px;
   }
   
-  .wrapper {
+.wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 1px;
     grid-row-gap: 1px;
     background-color: black;
+    min-width:550px;
+    min-height:550px;
   }
   
-  .letter {
+.letter {
     background-color: black;
     display: flex;
     justify-content: center;
@@ -26,3 +28,26 @@ body,html {
     cursor: pointer;
     transition: all .3s ease;
   }
+
+.wrapper-words {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    background-color:grey;
+}
+
+.word {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+    color:orange;
+    line-height:1;
+    font-family: 'hobeaux-rococeaux-background', Helvetica;
+    font-weight: 200;
+    cursor: pointer;
+    transition: all .3s ease;
+    padding-top:50px;
+    padding-bottom:50px;
+}
