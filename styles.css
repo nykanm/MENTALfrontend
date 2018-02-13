@@ -1,0 +1,16 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.litup {
+  background-color: #ADD8E6;
+}
