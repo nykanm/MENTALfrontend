@@ -1,12 +1,15 @@
 $(document).ready(function(){
- 
-    for (var i = 1 ; i < 7; i++){
-        var row = ".row-"+i;
-        $(row).addClass("litup");
-      
-      (function(i){setTimeout(function(){
-         var row = ".row-"+i
-         $(row).removeClass("litup");
-      }, 1000)});
-    }
- })
+    function toggleLit1(row) {
+      $(".row-"+row).toggleClass("litup");
+      window.setTimeout(function() {
+        toggleLit2(row);
+        }, 1000);
+      }
+    function toggleLit2(row) {
+      $(".row-"+row).toggleClass("litup");
+      window.setTimeout(function() {
+        toggleLit1((row+1)%6);
+        }, 1000);
+      }
+    toggleLit1(1);
+  });
