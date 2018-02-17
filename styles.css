@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body,html {
     padding: 50px;
     margin: 50px;
@@ -50,4 +51,32 @@ body,html {
     transition: all .3s ease;
     padding-top:50px;
     padding-bottom:50px;
+=======
+body {
+  background: #373737;
+}
+
+p {
+  color: #cacaca;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto auto auto auto;
+  padding: 20px;
+}
+.grid-item {
+  background-color: #1a1a1a;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.litup {
+  background-color: #ffb3b3;
+  color: black;
+>>>>>>> master
 }
