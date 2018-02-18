@@ -58,3 +58,9 @@ $(document).ready(function(){
     
     rowOn(1);
   });
+
+ $("div.emoji").toggle();
+$( "div.emojibtn" ).on( "click", function() {
+  $("div.letters").toggle();
+  $("div.emoji").toggle();
+});
