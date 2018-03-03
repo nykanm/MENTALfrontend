@@ -33,10 +33,6 @@
           ajax.onload = function() {
             var list = JSON.parse(ajax.responseText).map(function(i) { return i.name; });
             new Awesomplete(document.querySelector("#ajax-example input"),{ list: list });
-            //document.getElementById("word1").innerHTML = list3.suggestions[0];
-           // document.getElementById("word2").innerHTML = list3.suggestions[1];
-           // document.getElementById("word3").innerHTML = list3.suggestions[2];
-      
           };
           ajax.send();
           </script>
