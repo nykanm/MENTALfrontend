@@ -6,28 +6,41 @@
         <link rel="stylesheet" type="text/css" href="styles.css" />
         <meta http-equiv="content-type" content="text/php; charset=utf-8" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="./main.js"></script>	
+  <script src="awesomplete.js"></script>
+  <!--<script src="index.js"></script>-->
+  <script src="./main.js"></script>	
+
+  
+   <link rel="stylesheet" href="prism/prism.css" />
+<link rel="stylesheet" href="awesomplete.css" />
+ <!-- <link rel="stylesheet" href="style.css" /> -->
+  
+  
 
         <title>Grid Template</title>
     </head>
 
-    <body>
+    <body class="language-markup">
       
       <div class="text-insert">
-        INSERT TEXT HERE
+ 
+      <section id="ajax-example">
+       <input type="text" data-maxitems="3" data-minchars="1" placeholder="INSERT TEXT HERE" style="width:900px">
+        
+          <script>
+          var ajax = new XMLHttpRequest();
+          ajax.open("GET", "https://restcountries.eu/rest/v1/lang/fr", true);
+          ajax.onload = function() {
+            var list = JSON.parse(ajax.responseText).map(function(i) { return i.name; });
+            new Awesomplete(document.querySelector("#ajax-example input"),{ list: list });
+          };
+          ajax.send();
+          </script>
+          
+        </section>
       </div>
-      <div class="grid-container">
-            <div class="grid-item row-0 col-1">
-            	Word1
-            </div>
-                <div class="grid-item row-0 col-2">
-            	Word2
-            </div>
-                <div class="grid-item row-0 col-3">
-            	Word3
-            </div>
+
       
-      </div>
         <div class="grid-container letters">
           <!-- BEGIN LETTER/# GRID -->
             <div class="grid-item row-1 col-0 A">
@@ -257,7 +270,7 @@
                     <div class="grid-container">
 <div class="grid-item row-7 emojibtn" style="width:350px">
   	Emoji / Letters
-            </div>     
+</div>     
       </div>
  
     </body>
