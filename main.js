@@ -10,7 +10,7 @@ $(document).ready(function(){
     $(".row-"+row).toggleClass("litup");
     window.setTimeout(function() {
       rowOff(row);
-    }, 500);}
+    }, 240);}
   
   function rowOff(row) {
     $(".row-"+row).toggleClass("litup");
@@ -26,7 +26,7 @@ $(document).ready(function(){
     $(".col-"+col).toggleClass("litup");
     window.setTimeout(function() {
       colOff(col);
-    }, 500);}
+    }, 240);}
   
   function colOff(col) {
     $(".col-"+col).toggleClass("litup");

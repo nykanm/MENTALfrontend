@@ -9,6 +9,8 @@
   <script src="awesomplete.js"></script>
   <!--<script src="index.js"></script>-->
   <script src="./main.js"></script>	
+  <!-- ResponsiveVoice JS, text-to-speech -->
+  <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 
   
    <link rel="stylesheet" href="prism/prism.css" />
@@ -25,8 +27,7 @@
       <div class="text-insert">
  
       <section id="ajax-example">
-       <input type="text" data-maxitems="3" data-minchars="1" placeholder="INSERT TEXT HERE" style="width:900px">
-        
+        <input id="inputText" type="text" data-maxitems="3" data-minchars="1" placeholder="INSERT TEXT HERE" style="width:900px">
           <script>
           var ajax = new XMLHttpRequest();
           ajax.open("GET", "https://restcountries.eu/rest/v1/lang/fr", true);
@@ -36,18 +37,31 @@
           };
           ajax.send();
           </script>
+
+          <script>
+            function speech(){
+              var input = document.getElementById('inputText').value
+          responsiveVoice.speak(input); //lets make this activate only when selected with button
+            }
+          </script>
           
         </section>
       </div>
 
 
       <div class="grid-container" style="margin-bottom:-30px;">
-        <div class="grid-item row-8 col-0 spacebar" style="width:151px">
+        <div class="grid-item row-0 col-0 spacebar" style="width:80px">
                       __
                     </div>
-                  <div class="grid-item row-8 col-1 B" style="width:151px">
+                  <div class="grid-item row-0 col-1" style="width:80px">
                       ❌
                     </div>
+                    <div class="grid-item row-0 col-2 emojibtn" style="width:80px; font-size:20px">
+                      ABC<br> 😄
+                  </div> 
+                  <div class="grid-item row-0 col-3" style="width:80px; cursor:pointer" onclick="speech()">
+                    🔊
+                  </div>
           
           </div>
       
@@ -184,7 +198,7 @@
             	😡
             </div>
             <div class="grid-item row-2 col-0 emoji7">
-            	🍴🙏🏼
+            	🍴
             </div>
             <div class="grid-item row-2 col-1 emoji8">
             	💧
@@ -274,14 +288,7 @@
             	🔥
             </div>
           </div>
-          
-      
-           
-                    <div class="grid-container">
-<div class="grid-item row-7 emojibtn" style="width:350px">
-  	Emoji / Letters
-</div>     
-      </div>
+
  
     </body>
 
