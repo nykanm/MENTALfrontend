@@ -18,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'public'))); //Put public files (JS,
 /* SOCKET */
 io.on('connection', (socket) => {
 	console.log("new connection on socket");
+	
 	socket.on('message', (msg) => {
 		console.log("message: " + msg);
 	})
