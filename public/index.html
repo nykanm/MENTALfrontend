@@ -2,21 +2,11 @@
     <head>
         <link rel="stylesheet" type="text/css" href="css/styles.css" />
         <meta http-equiv="content-type" content="text/php; charset=utf-8" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/main.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var server = io.connect('http://localhost/osc/servers/8000'),
-          client = io.connect('http://localhost/osc/clients/8000');
-        server.on('message', function(message) {
-          console.log(message);
-        });
-         
-        setInterval(function() {
-          client.emit('message', ['/osc/test', 200]);
-        }, 500);
-    </script>
-    <title>Grid Template</title>
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    	<script src="js/main.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="js/socket.js"></script>
+        <title>Grid Template</title>
     </head>
 
     <body style="background:#E0E1F0;">
