@@ -1,0 +1,22 @@
+{
+  "name": "mentalfrontend",
+  "version": "1.0.0",
+  "description": "An accessibility typing application for patients with locked-in syndrome",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nykanm/MENTALfrontend.git"
+  },
+  "author": "MENTAL Frontend Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nykanm/MENTALfrontend/issues"
+  },
+  "homepage": "https://github.com/nykanm/MENTALfrontend#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
