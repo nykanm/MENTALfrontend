@@ -16,13 +16,33 @@
 //    socket.emit('message', "connected to socket");
 //}, 5000);
 
-var socket = io("http://localhost:3000");
+const socket      = io();
+const $messages   = $('#messages');
+const $turnOffLed = $('#turnOffLed');
+const $turnOnLed  = $('#turnOnLed');
 
+// Socket.io listeners
 socket.on('message', (msg) => {
-   var char = $(".row-"+msg[0]+" .col-"+msg[1]).val();
-   $("#inputText").val($("#inputText").val() + char);
+  let char = msg;
+
+  if (char) {
+    $("#inputText").val($("#inputText").val() + char);
+    awesomplete.evaluate()
+  }
 });
 
-setInterval(function() {
- socket.emit('message', [0, 0]);
-}, 1000);
+socket.on('close', () => {
+});
+
+// Functions
+function sendData(data) {
+  socket.send(data);
+}
+// socket.on('message', (msg) => {
+//    var char = $(".row-"+msg[0]+" .col-"+msg[1]).val();
+//    $("#inputText").val($("#inputText").val() + char);
+// });
+
+// setInterval(function() {
+//  socket.emit('message', [0, 0]);
+// }, 1000);

@@ -28,7 +28,7 @@
  
       <section id="ajax-example">
         <input id="inputText" type="text" data-maxitems="3" data-minchars="1" placeholder="INSERT TEXT HERE" style="width:900px">
-          <script>
+<!--           <script>
           var ajax = new XMLHttpRequest();
           ajax.open("GET", "https://restcountries.eu/rest/v1/lang/fr", true);
           ajax.onload = function() {
@@ -36,12 +36,12 @@
             new Awesomplete(document.querySelector("#ajax-example input"),{ list: list });
           };
           ajax.send();
-          </script>
+          </script> -->
 
           <script>
             function speech(){
               var input = document.getElementById('inputText').value
-          responsiveVoice.speak(input); //lets make this activate only when selected with button
+              responsiveVoice.speak(input); //lets make this activate only when selected with button
             }
           </script>
           

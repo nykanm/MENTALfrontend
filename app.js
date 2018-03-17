@@ -38,14 +38,21 @@ app.use(express.static(path.join(__dirname, 'public'))); //Put public files (JS,
 /* SOCKET */
 io.on('connection', (socket) => {
 	console.log("new connection on socket");
-	
-	socket.on('message', (msg) => {
-		console.log("message: " + msg);
-	})
 
-	socket.on('disconnect', function(){
-		console.log('a socket connection terminated');
-	});
+  // Front end will send a start message, and
+  // This will begin
+  let testMsg = ['t', 'e', 's', 't', 'i', 'n', 'g'];
+
+  let index = 0;
+
+  setInterval(function() {
+    socket.emit('message', testMsg[index]);
+    index++;
+  }, 1000);
+	
+	// socket.on('disconnect', function(){
+	// 	console.log('a socket connection terminated');
+	// });
 })
 
 /* START SERVER */
