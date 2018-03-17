@@ -28,5 +28,14 @@
     "karma-html2js-preprocessor": "^0.1.0",
     "karma-jasmine": "^0.3.6",
     "karma-jasmine-def": "^0.1.0"
+  },
+  "dependencies": {
+    "boom": "^7.2.0",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "hapi": "^17.2.3",
+    "hapi-require-https": "^3.0.0",
+    "inert": "^5.1.0",
+    "nodemailer": "^4.6.3"
   }
 }
