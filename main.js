@@ -6,60 +6,136 @@ $(document).ready(function(){
     });
   var hits = [];
   
-  function rowOn(row) {
-    $(".row-"+row).toggleClass("litup");
-    window.setTimeout(function() {
-      rowOff(row);
-    }, 240);}
-  
-  function rowOff(row) {
-    $(".row-"+row).toggleClass("litup");
-    window.setTimeout(function() {
-      if(row >= 6){
-        colOn(0);
-      } else {
-        rowOn(row+1);
-      }
-    }, 0);}
-  
-  function colOn(col) {
-    $(".col-"+col).toggleClass("litup");
-    window.setTimeout(function() {
-      colOff(col);
-    }, 240);}
-  
-  function colOff(col) {
-    $(".col-"+col).toggleClass("litup");
-    window.setTimeout(function() {
-      if(col >= 6){
-        rowOn(0);
-      } else {
-        colOn(col+1);
-      }
-    }, 0);}
-  
-  function rowCheck(row){
-    //This link will execute the callback with non-false if p300 is detected
-    //EX: var URL = http://localhost:3000/api/signal-checker
-    function callback(chosen){
-      var row = row;
-      if(chosen){
-        hits.push("row-"+row);
-        compareHits;
-      }
-      if(row >= 6){
-        colOn(0);
-      } else {
-        rowOn(row+1);
-      }
-    }
-    //EX: request(URL, callback);
-  }
-  
-  function colCheck(col){
-    
-  }
-  
-  rowOn(1);
-});
+  var NF_int = 100; // Non-flash interval
+  var F_int = 200; // Flash interval
+ // var RC_int = 1000; // Row/Col interval
+  var num_trials = 3; // number of trials
+  var T_int = 3000; // Inter-trial interval
 
+  var orderRow1 = [1, 4, 2, 5, 0, 3];
+  var orderCol1 = [5, 3, 2, 0, 4, 1];
+  var orderRow2 = [3, 2, 5, 0, 1, 4];
+  var orderCol2 = [3, 2, 0, 1, 5, 4];
+  var orderRow3 = [5, 1, 3, 4, 2, 6];
+  var orderCol3 = [3, 4, 0, 5, 2, 1];
+
+  // Trial 1
+      function rowOn1(row) {
+        $(".row-"+orderRow1[row]).toggleClass("litup");
+        window.setTimeout(function() {
+          rowOff1(row);
+        }, F_int);}
+      
+      function rowOff1(row) {
+        $(".row-"+orderRow1[row]).toggleClass("litup");
+        window.setTimeout(function() {
+          if(row >= 6){
+            colOn1(0);
+          } else {
+            rowOn1(row+1);
+          }
+        }, NF_int);}
+
+
+      function colOn1(col) {
+        $(".col-"+orderCol1[col]).toggleClass("litup");
+        window.setTimeout(function() {
+          colOff1(col);
+        }, F_int);}
+      
+      function colOff1(col) {
+        $(".col-"+orderCol1[col]).toggleClass("litup");
+        window.setTimeout(function() {
+          if(col >= 6){
+              rowOn2(0);
+          } else {
+            colOn1(col+1);
+          }
+          }, NF_int);}
+
+// Trial 2
+
+function rowOn2(row) {
+  $(".row-"+orderRow2[row]).toggleClass("litup");
+  window.setTimeout(function() {
+    rowOff2(row);
+  }, F_int);}
+
+function rowOff2(row) {
+  $(".row-"+orderRow2[row]).toggleClass("litup");
+  window.setTimeout(function() {
+    if(row >= 6){
+      colOn2(0);
+    } else {
+      rowOn2(row+1);
+    }
+  }, NF_int);}
+
+
+function colOn2(col) {
+  $(".col-"+orderCol2[col]).toggleClass("litup");
+  window.setTimeout(function() {
+    colOff2(col);
+  }, F_int);}
+
+function colOff2(col) {
+  $(".col-"+orderCol2[col]).toggleClass("litup");
+  window.setTimeout(function() {
+    if(col >= 6){
+        rowOn3(0);
+    } else {
+      colOn2(col+1);
+    }
+    }, NF_int);}
+
+
+//Trial 3
+
+
+function rowOn3(row) {
+  $(".row-"+orderRow3[row]).toggleClass("litup");
+  window.setTimeout(function() {
+    rowOff3(row);
+  }, F_int);}
+
+function rowOff3(row) {
+  $(".row-"+orderRow3[row]).toggleClass("litup");
+  window.setTimeout(function() {
+    if(row >= 6){
+      colOn3(0);
+    } else {
+      rowOn3(row+1);
+    }
+  }, NF_int);}
+
+
+function colOn3(col) {
+  $(".col-"+orderCol3[col]).toggleClass("litup");
+  window.setTimeout(function() {
+    colOff3(col);
+  }, F_int);}
+
+function colOff3(col) {
+  $(".col-"+orderCol3[col]).toggleClass("litup");
+  window.setTimeout(function() {
+    if(col >= 6){
+        rowOn1(0);
+    } else {
+      colOn3(col+1);
+    }
+    }, NF_int);}
+  
+
+
+
+
+
+
+
+
+
+    
+ 
+  
+  rowOn1(0);
+});

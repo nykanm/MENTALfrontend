@@ -353,12 +353,12 @@ _.SORT_BYLENGTH = function (a, b) {
 };
 
 _.ITEM = function (text, input, item_id) {
-	var html = input.trim() === "" ? text : text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "<mark>$&</mark>");
+	var html = input.trim() === "" ? text : text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "$&");
 	return $.create("li", {
 		innerHTML: html,
 		"aria-selected": "false",
 		"id": "awesomplete_list_" + this.count + "_item_" + item_id,
-		"class": "grid-item row-0 " + " col-" + item_id
+		"class": "grid-item-word row-0 " + " col-" + item_id
 	});
 };
 
