@@ -10,8 +10,19 @@
 // }, 1000);
 
 /* GENERIC SOCKET CODE */
-var socket = io();
+//var socket = io();
 
-setInterval(() => {
-    socket.emit('message', "connected to socket");
-}, 5000);
+//setInterval(() => {
+//    socket.emit('message', "connected to socket");
+//}, 5000);
+
+var socket = io("http://localhost:3000");
+
+socket.on('message', (msg) => {
+   var char = $(".row-"+msg[0]+" .col-"+msg[1]).val();
+   $("#inputText").val($("#inputText").val() + char);
+});
+
+setInterval(function() {
+ socket.emit('message', [0, 0]);
+}, 1000);

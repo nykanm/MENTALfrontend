@@ -19,7 +19,7 @@ p {
   padding: 20px;
   font-size: 30px;
   text-align: center;
-  width:40px;
+  width:80px;
   height:40px;
 }
 
@@ -62,3 +62,4 @@ input:focus {
 	animation: pulsate 2s infinite alternate linear;
 	background: hsla(0,0%,100%,.5);
 }
+

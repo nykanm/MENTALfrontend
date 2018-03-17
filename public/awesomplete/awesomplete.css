@@ -25,7 +25,11 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    background: #fff;
+	background: #fff;
+	display: grid;
+	justify-content: center;
+	grid-template-columns: auto auto auto auto auto auto;
+	padding: 20px;
 }
 
 .awesomplete > ul:empty {
@@ -36,10 +40,16 @@
 	border-radius: .3em;
 	margin: .2em 0 0;
 	background: hsla(0,0%,100%,.9);
-	background: linear-gradient(to bottom right, white, hsla(0,0%,100%,.8));
+	background: black;
 	border: 1px solid rgba(0,0,0,.3);
 	box-shadow: .05em .2em .6em rgba(0,0,0,.2);
 	text-shadow: none;
+	background-color: #1a1a1a;
+  	font-family: Arial, Helvetica, sans-serif;
+  	color: white;
+  	padding: 20px;
+  	font-size: 30px;
+  	text-align: center;
 }
 
 @supports (transform: scale(0)) {
@@ -65,7 +75,7 @@
 		left: 1em;
 		width: 0; height: 0;
 		padding: .4em;
-		background: white;
+		background: black;
 		border: inherit;
 		border-right: 0;
 		border-bottom: 0;
@@ -89,16 +99,18 @@
 		color: white;
 	}
 	
-		.awesomplete mark {
-			background: hsl(65, 100%, 50%);
-		}
-		
-		.awesomplete li:hover mark {
-			background: hsl(68, 100%, 41%);
-		}
-		
-		.awesomplete li[aria-selected="true"] mark {
-			background: hsl(86, 100%, 21%);
-			color: inherit;
-		}
+	.awesomplete mark {
+		background: none;
+		color:white;
+	}
+	
+	.awesomplete li:hover mark {
+		background: none;
+		color:white;
+	}
+	
+	.awesomplete li[aria-selected="true"] mark {
+		background: hsl(86, 100%, 21%);
+		color: inherit;
+	}
 /*# sourceMappingURL=awesomplete.css.map */
