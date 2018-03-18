@@ -21,30 +21,31 @@ const $messages   = $('#messages');
 const $turnOffLed = $('#turnOffLed');
 const $turnOnLed  = $('#turnOnLed');
 
+
+$(".row-1"+ " .col-1").val();
+
 // Socket.io listeners
 socket.on('message', (msg) => {
-  let char = msg;
+  let location = msg;
 
-  if (char) {
+  if (location && location !== undefined) {
+    let char = $(".row-1.col-0").html().replace(/\s/g,'')
     $("#inputText").val($("#inputText").val() + char);
     awesomplete.evaluate()
   }
+
 });
 
 
 $("#emergencyBtn").click((function() {
-  socket.emit('sendmail', $("#emergencyEmail").val());
+  console.log('sanity');
+  // let char = document.getElementById("row-1col-0").getAttribute("data-value"); 
+  let char = $(".row-1.col-0").html().replace(/\s/g,'')
+  console.log(char);
+  // socket.emit('sendmail', $("#emergencyEmail").val());
 }))
 
 // Functions
 function sendData(data) {
   socket.send(data);
 }
-// socket.on('message', (msg) => {
-//    var char = $(".row-"+msg[0]+" .col-"+msg[1]).val();
-//    $("#inputText").val($("#inputText").val() + char);
-// });
-
-// setInterval(function() {
-//  socket.emit('message', [0, 0]);
-// }, 1000);

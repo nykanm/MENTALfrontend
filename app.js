@@ -13,6 +13,8 @@ const io      = require('socket.io')(server); // Sets up a socket
 const osc     = require('osc.io');
 const mail    = require('nodemailer');
 
+const dgram = require('dgram');
+const udp = dgram.createSocket('udp4');
 
 const transporter = mail.createTransport({
   service: 'gmail',
@@ -43,46 +45,65 @@ app.use(express.static(path.join(__dirname, 'public'))); //Put public files (JS,
 
 var connections = []
 
+
+
+
 io.on('connection', (socket) => {
 	console.log("new connection on socket");
 
-  // Front end will send a start message, and
-  // This will begin
-  let testMsg = ['t', 'e', 's', 't', 'i', 'n', 'g'];
 
-  let index = 0;
-
-  setInterval(function() {
-    socket.emit('message', testMsg[index]);
-    index++;
-  }, 1000);
-
-
-  socket.on('sendmail', function(msg) {
-
-    console.log('here we are');
-    mailOptions.to = msg;
-
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.log(error);
-      } else {
-        console.log('Email sent: ' + info.response);
-      }
-    });
-  })
-
-	
-  socket.once('disconnect', () => {
-      connections.splice(connections.indexOf(socket), 1);
-      socket.disconnect();
-      console.log('Disconnected: %s. Remained: %s.', socket.id, connections.length)
+  /* START UDP SERVER */
+  udp.on('error', (err) => {
+    console.log(`udp server error:\n${err.stack}`);
+    server.close();
   });
 
-  connections.push(socket);
+  udp.on('message', (msg, rinfo) => {
+    console.log(`udp server got message: ${msg.toString()} from ${rinfo.address}:${rinfo.port}`);
+    let location = msg.toString().split(',')[0];
+    socket.emit('message', location);
+  });
+
+  udp.on('listening', () => {
+    const address = server.address();
+    console.log(`udp server listening ${address.address}:${address.port}`);
+  });
+
+  udp.bind({
+    address: 'localhost',
+    port: 12345
+  });
+
+
+
+  // socket.on('sendmail', function(msg) {
+
+  //   mailOptions.to = msg;
+
+  //   transporter.sendMail(mailOptions, function(error, info){
+  //     if (error) {
+  //       console.log(error);
+  //     } else {
+  //       console.log('Email sent: ' + info.response);
+  //     }
+  //   });
+  // })
+
+	
+  // socket.once('disconnect', () => {
+  //     connections.splice(connections.indexOf(socket), 1);
+  //     socket.disconnect();
+  //     console.log('Disconnected: %s. Remained: %s.', socket.id, connections.length)
+  // });
+
+  // connections.push(socket);
 })
 
 /* START SERVER */
 server.listen(app.get('port'), () => {
 	console.log('Listening on port 3000...')
 });
+
+
+
+
