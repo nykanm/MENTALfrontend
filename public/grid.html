@@ -24,7 +24,8 @@
     </head>
 
     <body class="language-markup">
-      
+    
+
         <div class="text-insert">
             <input id="inputText" type="text" data-maxitems="6" data-minchars="1" placeholder="INSERT TEXT HERE" style="width:900px"/>
             <script>
@@ -40,10 +41,19 @@
                     responsiveVoice.speak(input); //lets make this activate only when selected with button
                 }
             </script>
-            <script src="js/socket.js"></script>
 
         </div>
 
+
+    <div>
+        <p style="font-color: white">Test sending email</p>
+        <button id="emergencyBtn" style="width:80px">
+            Send mail
+        </button>
+        <input id="emergencyEmail" placeholder="Recipient address"/>
+    </div>
+
+      <div class="grid-container" style="margin-bottom:-30px;">
 
             <!-- BEGIN LETTER/# GRID -->
         <div class="grid-container letters">
@@ -236,9 +246,14 @@
 
     </body>
 
+
+
     <footer>
         <div class="Footer">
             <p style="text-align: center;">© MENTAL 2018</p>
         </div>
     </footer>
+
+    <script src="js/socket.js"></script>
+
 </html>

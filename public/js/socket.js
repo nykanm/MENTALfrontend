@@ -31,8 +31,10 @@ socket.on('message', (msg) => {
   }
 });
 
-socket.on('close', () => {
-});
+
+$("#emergencyBtn").click((function() {
+  socket.emit('sendmail', $("#emergencyEmail").val());
+}))
 
 // Functions
 function sendData(data) {
