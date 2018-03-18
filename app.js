@@ -26,7 +26,7 @@ const transporter = mail.createTransport({
 
 let mailOptions = {
   from: 'mcgillneurotech@gmail.com',
-  to: '',
+  to: 'nyk.mirchi@gmail.com',
   subject: 'Sent from MENTAL P300 user',
   text: 'Ping from P300 machine'
 };
@@ -51,7 +51,6 @@ var connections = []
 io.on('connection', (socket) => {
 	console.log("new connection on socket");
 
-
   /* START UDP SERVER */
   udp.on('error', (err) => {
     console.log(`udp server error:\n${err.stack}`);
@@ -69,34 +68,27 @@ io.on('connection', (socket) => {
     console.log(`udp server listening ${address.address}:${address.port}`);
   });
 
-  udp.bind({
-    address: 'localhost',
-    port: 12345
+
+  socket.on('sendmail', function(msg) {
+
+    mailOptions.to = msg;
+
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+  })
+
+  socket.once('disconnect', () => {
+      connections.splice(connections.indexOf(socket), 1);
+      socket.disconnect();
+      console.log('Disconnected: %s. Remained: %s.', socket.id, connections.length)
   });
 
-
-
-  // socket.on('sendmail', function(msg) {
-
-  //   mailOptions.to = msg;
-
-  //   transporter.sendMail(mailOptions, function(error, info){
-  //     if (error) {
-  //       console.log(error);
-  //     } else {
-  //       console.log('Email sent: ' + info.response);
-  //     }
-  //   });
-  // })
-
-	
-  // socket.once('disconnect', () => {
-  //     connections.splice(connections.indexOf(socket), 1);
-  //     socket.disconnect();
-  //     console.log('Disconnected: %s. Remained: %s.', socket.id, connections.length)
-  // });
-
-  // connections.push(socket);
+  connections.push(socket);
 })
 
 /* START SERVER */

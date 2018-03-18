@@ -22,8 +22,6 @@ const $turnOffLed = $('#turnOffLed');
 const $turnOnLed  = $('#turnOnLed');
 
 
-$(".row-1"+ " .col-1").val();
-
 // Socket.io listeners
 socket.on('message', (msg) => {
   let location = msg;
@@ -36,14 +34,6 @@ socket.on('message', (msg) => {
 
 });
 
-
-$("#emergencyBtn").click((function() {
-  console.log('sanity');
-  // let char = document.getElementById("row-1col-0").getAttribute("data-value"); 
-  let char = $(".row-1.col-0").html().replace(/\s/g,'')
-  console.log(char);
-  // socket.emit('sendmail', $("#emergencyEmail").val());
-}))
 
 // Functions
 function sendData(data) {

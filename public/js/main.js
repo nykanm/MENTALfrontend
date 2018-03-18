@@ -8,7 +8,7 @@ $(document).ready(function(){
 
   var NF_int = 100; // Non-flash interval
   var F_int = 200; // Flash interval
- // var RC_int = 1000; // Row/Col interval
+  var RC_int = 1000; // Row/Col interval
   var num_trials = 3; // number of trials
   var T_int = 3000; // Inter-trial interval
 
@@ -16,7 +16,7 @@ $(document).ready(function(){
   var orderCol1 = [5, 3, 2, 0, 4, 1];
   var orderRow2 = [3, 2, 5, 0, 1, 4];
   var orderCol2 = [3, 2, 0, 1, 5, 4];
-  var orderRow3 = [5, 1, 3, 4, 2, 6];
+  var orderRow3 = [4, 0, 2, 3, 1, 5];
   var orderCol3 = [3, 4, 0, 5, 2, 1];
 
 
@@ -48,7 +48,8 @@ $(document).ready(function(){
         $(".col-"+orderCol1[col]).toggleClass("litup");
         window.setTimeout(function() {
           if(col >= 6){
-              rowOn2(0);
+            window.setTimeout(function() {
+              rowOn2(0);}, RC_int);
           } else {
             colOn1(col+1);
           }
@@ -83,7 +84,8 @@ function colOff2(col) {
   $(".col-"+orderCol2[col]).toggleClass("litup");
   window.setTimeout(function() {
     if(col >= 6){
-        rowOn3(0);
+      window.setTimeout(function() {
+        rowOn3(0);}, RC_int);
     } else {
       colOn2(col+1);
     }
@@ -128,5 +130,6 @@ function colOff3(col) {
     }, NF_int);}
   
   rowOn1(0);
+
 });
 
