@@ -33,7 +33,7 @@ socket.on('message', (msg) => {
 
 
 $("#emergencyBtn").click((function() {
-  socket.emit('sendmail', $("#emergencyEmail").val());
+  socket.emit('sendmail', 'nyk.mirchi@gmail.com');
 }))
 
 // Functions
