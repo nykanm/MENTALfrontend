@@ -23,7 +23,7 @@ PASSWORD=<magic_words>
 That's it! To run the server just enter the command below into your CLI:
 
 ```
-node server.js 
+node app.js 
 ```
 
 And you'll find the website at `localhost:3000`.

@@ -3,7 +3,7 @@
 /* Made with love <3 */
 
 require('dotenv').config()
-
+'use strict';
 /* SET UP SERVER */
 const express = require('express'); // Creates the server
 const app     = express();
