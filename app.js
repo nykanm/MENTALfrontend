@@ -24,7 +24,11 @@ const transporter = mail.createTransport({
 
 let mailOptions = {
   from: 'mcgillneurotech@gmail.com',
+<<<<<<< Updated upstream
   to: '',
+=======
+  to: 'nyk.mirchi@gmail.com',
+>>>>>>> Stashed changes
   subject: 'Sent from MENTAL P300 user',
   text: 'Ping from P300 machine'
 };
@@ -48,13 +52,14 @@ io.on('connection', (socket) => {
 
   // Front end will send a start message, and
   // This will begin
-  let testMsg = ['t', 'e', 's', 't', 'i', 'n', 'g'];
-
+//  let testMsg = ['h', 'e', 'y'];
+ let testMsg = ['👋'];
   let index = 0;
 
   setInterval(function() {
     socket.emit('message', testMsg[index]);
     index++;
+<<<<<<< Updated upstream
   }, 1000);
 
 
@@ -72,6 +77,9 @@ io.on('connection', (socket) => {
     });
   })
 
+=======
+  }, 17700);
+>>>>>>> Stashed changes
 	
   socket.once('disconnect', () => {
       connections.splice(connections.indexOf(socket), 1);

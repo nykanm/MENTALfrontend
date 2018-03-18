@@ -16,8 +16,8 @@ p {
   background-color: #1a1a1a;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  padding: 20px 60px;
-  font-size: 50px;
+  padding: 20px;
+  font-size: 40px;
   text-align: center;
   width:80px;
   height:40px;
@@ -31,7 +31,6 @@ p {
 .text-insert {
   display: grid;
   justify-content: center;
-  background: grey;
   padding: 20px;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
@@ -55,7 +54,7 @@ input {
   padding: .1em .3em;
   border: 0;
   border: 1px solid hsl(35, 80%, 60%);
-  background: hsla(0,0%,100%,.2);
+  background: hsla(0,0%,100%,.9);
   border-radius: .3em;
   box-shadow: .05em .1em .3em rgba(0,0,0,.3) inset;
 }
@@ -67,17 +66,9 @@ input {
 }
 
 input:focus {
-<<<<<<< HEAD:styles.css
   outline: none;
   border: 1px solid #58a;
   animation: pulsate 2s infinite alternate linear;
   background: hsla(0,0%,100%,.5);
 }
-=======
-	outline: none;
-	border: 1px solid #58a;
-	animation: pulsate 2s infinite alternate linear;
-	background: hsla(0,0%,100%,.5);
-}
 
->>>>>>> f36b73bf73933c874ce781ad24fba05ea8804f7e:public/css/styles.css
